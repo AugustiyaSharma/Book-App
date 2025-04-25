@@ -13,7 +13,7 @@ const App = () => {
   useEffect(() => {
     document.body.className = darkMode ? 'dark' : ''
     localStorage.setItem('theme', darkMode ? 'dark' : 'light')
-  }, [darkMode])
+  }, [darkMode]) 
 
   return (
     <div>
