@@ -33,6 +33,7 @@ body {
   transition: all 0.3s ease;
 }
 
+/* Navbar */
 nav {
   backdrop-filter: blur(12px);
   background: var(--nav-bg);
@@ -89,6 +90,7 @@ nav a:hover {
   background: var(--button-bg-hover);
 }
 
+/* Form */
 form {
   max-width: 600px;
   margin: 2rem auto;
@@ -135,15 +137,11 @@ form button:hover {
   background: var(--button-bg-hover);
   transform: scale(1.05);
 }
-.card-actions {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 1rem;
-}
 
+/* Reusable Button Styles */
 .btn {
   padding: 0.4rem 1rem;
-  font-size: 0.9rem;
+  font-size: 0.85rem;
   border: none;
   border-radius: 8px;
   cursor: pointer;
@@ -167,6 +165,8 @@ form button:hover {
 .btn.delete:hover {
   background: linear-gradient(135deg, #dc2626, #b91c1c);
 }
+
+/* Books Grid */
 .books-container {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -222,29 +222,65 @@ form button:hover {
   margin-top: 1rem;
 }
 
-.btn {
-  padding: 0.4rem 1rem;
-  font-size: 0.85rem;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
+/* DeleteBook Specific */
+.delete-book-container {
+  max-width: 700px;
+  margin: 3rem auto;
+  background: var(--form-bg);
+  border-radius: 20px;
+  padding: 2rem;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  color: var(--text-main);
   transition: all 0.3s ease;
 }
 
-.btn.update {
-  background: linear-gradient(135deg, #3b82f6, #06b6d4);
-  color: #fff;
+.delete-book-container h2 {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  font-size: 2rem;
+  color: #38bdf8;
 }
 
-.btn.update:hover {
-  background: linear-gradient(135deg, #2563eb, #0891b2);
+.delete-book-container ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
-.btn.delete {
-  background: linear-gradient(135deg, #f87171, #ef4444);
-  color: #fff;
+.delete-book-container li {
+  background: rgba(255, 255, 255, 0.05);
+  margin-bottom: 1rem;
+  padding: 1rem 1.5rem;
+  border-radius: 14px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: var(--text-main);
+  transition: background 0.3s ease;
 }
 
-.btn.delete:hover {
-  background: linear-gradient(135deg, #dc2626, #b91c1c);
+.delete-book-container li:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.delete-book-container .book-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.delete-book-container .book-info strong {
+  font-size: 1.1rem;
+}
+
+.delete-book-container .book-info span {
+  font-size: 0.95rem;
+  color: var(--nav-text);
+}
+
+.delete-book-container .no-books {
+  text-align: center;
+  font-style: italic;
+  color: var(--nav-text);
 }

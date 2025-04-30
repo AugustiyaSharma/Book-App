@@ -91,6 +91,20 @@ app.delete('/books/:id', async (req, res) => {
         res.status(500).send("Server error");
     }
 });
+// SEARCH books by title
+app.get('/search', async (req, res) => {
+    try {
+        const query = req.query.title;
+        const books = await Book.find({
+            title: { $regex: query, $options: 'i' }  // case-insensitive match
+        });
+        res.status(200).json(books);
+    } catch (error) {
+        console.error(error);
+        res.status(500).send("Error while searching books");
+    }
+});
+
 
 // Start the server
 app.listen(9000, () => {
