@@ -16,40 +16,36 @@ const App = () => {
   }, [darkMode]) 
 
   return (
-    <div className="app-container">
+    <div className={`app-wrapper ${darkMode ? 'dark' : ''}`}>
       <Router>
-        <nav>
-          <ul>
-            <li><Link to='/add'>Add Book</Link></li>
-            <li><Link to='/view'>View Book</Link></li>
-            <li><Link to='/update'>Update Book</Link></li>
-            <li><Link to='/delete'>Delete Book</Link></li>
-            <li><Link to='/search'>Search Book</Link></li>
-          </ul>
-          <button className="theme-toggle" onClick={() => setDarkMode(!darkMode)}>
-            {darkMode ? '🌞 Light Mode' : '🌙 Dark Mode'}
-          </button>
-        </nav>
+        <div className="app-container">
+          <nav>
+            <ul>
+              <li><Link to='/add'>Add Book</Link></li>
+              <li><Link to='/view'>View Book</Link></li>
+              <li><Link to='/update'>Update Book</Link></li>
+              <li><Link to='/delete'>Delete Book</Link></li>
+              <li><Link to='/search'>Search Book</Link></li>
+            </ul>
+            <button className="theme-toggle" onClick={() => setDarkMode(!darkMode)}>
+              {darkMode ? '🌞 Light Mode' : '🌙 Dark Mode'}
+            </button>
+          </nav>
 
-        <Routes>
-          <Route path='/add' element={<Addbook />} />
-          <Route path='/view' element={<Viewbook />} />
-          <Route path='/update' element={<Updatebook />} />
-          <Route path='/delete' element={<Deletebook />} />
-          <Route path='/search' element={<Searchbook />} />
-        </Routes>
+          <main className="main-content">
+            <Routes>
+              <Route path='/add' element={<Addbook />} />
+              <Route path='/view' element={<Viewbook />} />
+              <Route path='/update' element={<Updatebook />} />
+              <Route path='/delete' element={<Deletebook />} />
+              <Route path='/search' element={<Searchbook />} />
+            </Routes>
+          </main>
 
-        
-        <footer style={{
-          textAlign: 'center',
-          padding: '1rem',
-          backgroundColor: darkMode ? '#333' : '#f1f1f1',
-          color: darkMode ? '#fff' : '#333',
-          borderTop: '1px solid #ccc',
-          marginTop: 'auto'
-        }}>
-          &copy; {new Date().getFullYear()} Augustiya Sharma. All rights reserved.
-        </footer>
+          <footer className="footer">
+            &copy; {new Date().getFullYear()} Augustiya Sharma. All rights reserved.
+          </footer>
+        </div>
       </Router>
     </div>
   )
