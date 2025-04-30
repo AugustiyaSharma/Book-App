@@ -7,7 +7,7 @@ const Viewbook = () => {
   const navigate = useNavigate()
 
   const fetchBooks = () => {
-    axios.get('http://localhost:9000/books')
+    axios.get('https://book-app-2-17xw.onrender.com/books')
       .then((res) => setBooks(res.data))
       .catch((err) => console.log(err))
   }
@@ -17,7 +17,7 @@ const Viewbook = () => {
   }, [])
 
   const handleDelete = async (id) => {
-    await axios.delete(`http://localhost:9000/books/${id}`)
+    await axios.delete(`https://book-app-2-17xw.onrender.com/books/${id}`)
     fetchBooks()
   }
 

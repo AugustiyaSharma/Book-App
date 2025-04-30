@@ -22,7 +22,7 @@ const UpdateBook = () => {
       return
     }
 
-    axios.get(`http://localhost:9000/books/${bookId}`)
+    axios.get(`https://book-app-2-17xw.onrender.com/books/${bookId}`)
       .then(res => {
         setBook(res.data)
       })
@@ -44,7 +44,7 @@ const UpdateBook = () => {
     }
 
     try {
-      await axios.put(`http://localhost:9000/books/${bookId}`, book)
+      await axios.put(`https://book-app-2-17xw.onrender.com/books/${bookId}`, book)
       alert('Book updated successfully!')
       navigate('/view')
     } catch (err) {
