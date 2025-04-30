@@ -16,7 +16,7 @@ const App = () => {
   }, [darkMode]) 
 
   return (
-    <div>
+    <div className="app-container">
       <Router>
         <nav>
           <ul>
@@ -30,6 +30,7 @@ const App = () => {
             {darkMode ? '🌞 Light Mode' : '🌙 Dark Mode'}
           </button>
         </nav>
+
         <Routes>
           <Route path='/add' element={<Addbook />} />
           <Route path='/view' element={<Viewbook />} />
@@ -37,6 +38,18 @@ const App = () => {
           <Route path='/delete' element={<Deletebook />} />
           <Route path='/search' element={<Searchbook />} />
         </Routes>
+
+        
+        <footer style={{
+          textAlign: 'center',
+          padding: '1rem',
+          backgroundColor: darkMode ? '#333' : '#f1f1f1',
+          color: darkMode ? '#fff' : '#333',
+          borderTop: '1px solid #ccc',
+          marginTop: 'auto'
+        }}>
+          &copy; {new Date().getFullYear()} Augustiya Sharma. All rights reserved.
+        </footer>
       </Router>
     </div>
   )
